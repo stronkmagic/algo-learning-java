@@ -11,7 +11,7 @@ public class BinaryTreeTopologies {
     }
 
     public static void main(String[] args) {
-        int n = 20;
+        int n = 4;
         int res = recursion(n);
         System.out.println(res);
     }
