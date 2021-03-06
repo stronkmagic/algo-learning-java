@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShortEncodingsOfWord {
     public static void main(String[] args) {
@@ -15,6 +17,26 @@ public class ShortEncodingsOfWord {
     }
     public static int minimumLengthEncoding(String[] words) {
         return myNaiveSolution(words);
+    }
+
+    private static int trieSolution(String[] words) {
+        TrieNode trie = new TrieNode();
+        Map<TrieNode, Integer> nodes = new HashMap<>();
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            TrieNode curr = trie;
+            for(int j = word.length() - 1; j >= 0; j--)
+                curr = curr.get(word.charAt(j));
+            nodes.put(cur, i);
+        }
+
+        int ans = 0;
+        for (TrieNode node: nodes.keySet()) {
+            if (node.count == 0)
+                ans += words[nodes.get(node)].length() + 1;
+        }
+        return ans;
     }
 
     private static int myNaiveSolution(String[] words) {
@@ -48,4 +70,22 @@ public class ShortEncodingsOfWord {
 
         return sb.toString().length();
     }
+}
+
+class TrieNode {
+    TrieNode[] children;
+    int count;
+    TrieNode() {
+        children = new TrieNode[26];
+        count = 0;
+    }
+
+    public TrieNode get(char c) {
+        if (children[c-'a'] == null) {
+            children[c-'a'] = new TrieNode();
+            count++;
+        }
+        return children[c-'a'];
+    }
+
 }
