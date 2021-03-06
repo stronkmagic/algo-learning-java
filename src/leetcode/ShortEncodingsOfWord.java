@@ -28,7 +28,7 @@ public class ShortEncodingsOfWord {
             TrieNode curr = trie;
             for(int j = word.length() - 1; j >= 0; j--)
                 curr = curr.get(word.charAt(j));
-            nodes.put(cur, i);
+            nodes.put(curr, i);
         }
 
         int ans = 0;
