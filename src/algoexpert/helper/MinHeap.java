@@ -6,6 +6,8 @@ import java.util.List;
 public class MinHeap {
     List<Integer> heap = new ArrayList<>();
 
+    public MinHeap() {}
+
     public MinHeap(List<Integer> array) {
         heap = buildHeap(array);
     }
@@ -50,6 +52,10 @@ public class MinHeap {
             currentIdx = parentIdx;
             parentIdx = (currentIdx - 1) / 2;
         }
+    }
+
+    public boolean isEmpty() {
+        return heap.isEmpty();
     }
 
     public int peek() {
