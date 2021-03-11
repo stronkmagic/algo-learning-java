@@ -1,5 +1,6 @@
 package algoexpert;
 
+import algoexpert.helper.MaxHeap;
 import algoexpert.helper.MinHeap;
 
 import java.util.*;
@@ -7,13 +8,25 @@ import java.util.*;
 public class KthLargest {
 
     public static void main(String[] args) {
-        int[] array = new int[] {2,10,12,3,15,4,6,100,251,333};
-        int k = 3;
-
+//        int[] array = new int[] {2,10,12,3,15,4,6,100,251,333};
+//        int k = 3;
+//
+//        ArrayList<Integer> list = new ArrayList<>();
+//        for (Integer ar: array) {
+//            list.add(ar);
+//        }
+        Random random = new Random();
         ArrayList<Integer> list = new ArrayList<>();
-        for (Integer ar: array) {
-            list.add(ar);
+
+        for (int i = 0; i < 5000000; i++) {
+            list.add(random.nextInt());
         }
+
+
+        int[] array = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) array[i] = list.get(i);
+
+        int k = 3;
         long startTime2 = System.nanoTime();
         System.out.println(kthLargestUsingHeap(list, k));
         long stopTime2 = System.nanoTime();
@@ -27,10 +40,10 @@ public class KthLargest {
     }
 
     private static int kthLargestUsingHeap(List<Integer> array, int k) {
-        MinHeap minHeap = new MinHeap(array);
+        MaxHeap heap = new MaxHeap(array);
         int result = -1;
         while (k > 0) {
-            result = minHeap.remove();
+            result = heap.remove();
             k--;
         }
         return result;
