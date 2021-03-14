@@ -16,7 +16,7 @@ public class ShortEncodingsOfWord {
         System.out.println(test2Res);
     }
     public static int minimumLengthEncoding(String[] words) {
-        return myNaiveSolution(words);
+        return trieSolution(words);
     }
 
     private static int trieSolution(String[] words) {
