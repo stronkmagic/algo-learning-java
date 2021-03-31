@@ -27,9 +27,9 @@ public class RussianDollEnvelopes {
     public int maxEnvelopes(int[][] envelopes) {
         Arrays.sort(envelopes, (x, x1) -> {
             if (x[0] == x1[0]) {
-                return x[1] - x1[1];
+                return x1[1] - x[1];
             }
-            return x1[0] - x[0];
+            return x[0] - x1[0];
         });
 
         int[] heights = new int[envelopes.length];
