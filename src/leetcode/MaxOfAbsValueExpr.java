@@ -2,11 +2,15 @@ package leetcode;
 
 public class MaxOfAbsValueExpr {
     public static void main(String[] args) {
-        int[] arr1 = {1,2,3,4};
-        int[] arr2 = {-1,4,5,6};
-        MaxOfAbsValueExpr solution = new MaxOfAbsValueExpr();
-        int absValExpr = solution.maxAbsValExpr(arr1, arr2);
-        System.out.println(absValExpr);
+        System.out.println('a'-'a');
+        System.out.println('b'-'a');
+        System.out.println('c'-'a');
+        System.out.println('z'-'a');
+//        int[] arr1 = {1,2,3,4};
+//        int[] arr2 = {-1,4,5,6};
+//        MaxOfAbsValueExpr solution = new MaxOfAbsValueExpr();
+//        int absValExpr = solution.maxAbsValExpr(arr1, arr2);
+//        System.out.println(absValExpr);
     }
 
     public int maxAbsValExpr(int[] arr1, int[] arr2) {
