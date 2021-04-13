@@ -21,6 +21,10 @@ public class PhoneNumberMnemonics {
         DIGIT_LETTERS.put('9', new String[] {"w", "x", "y", "z"});
     }
 
+    //  Map<Character, String> Map.of(
+    //        '2', "abc", '3', "def", '4', "ghi", '5', "jkl",
+    //        '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz");
+
     // O(N * 4^N)
     public static ArrayList<String> phoneNumberMnemonicsIterative(String phoneNumber) {
         // Write your code here.
