@@ -19,7 +19,7 @@ public class FlattenBinaryTree {
         BinaryTree res2 = flattenBinaryTreeOptimal(tree);
     }
 
-    // O(n) space | O(d) time
+    // O(n) time | O(d) space
     public static BinaryTree flattenBinaryTreeOptimal(BinaryTree root) {
         return helper(root)[0];
     }
@@ -52,7 +52,7 @@ public class FlattenBinaryTree {
     // O(n) space | O(n) time
     public static BinaryTree flattenBinaryTreeLinear(BinaryTree root) {
         // Write your code here.
-        List<BinaryTree> inOrderNodes = inOrder(root, new ArrayList<>());
+                List<BinaryTree> inOrderNodes = inOrder(root, new ArrayList<>());
         for (int i = 0; i < inOrderNodes.size() - 1; i++) {
             BinaryTree leftNode = inOrderNodes.get(i);
             BinaryTree rightNode = inOrderNodes.get(i+1);

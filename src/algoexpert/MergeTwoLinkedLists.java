@@ -16,16 +16,33 @@ public class MergeTwoLinkedLists {
         listTwo.next.next.next.next = new LinkedList(9);
         listTwo.next.next.next.next.next = new LinkedList(10);
 
-        LinkedList mergedList2 = mergeLinkedListsTwo(listOne, listTwo);
-        while (mergedList2 != null) {
-            System.out.println(mergedList2.value);
-            mergedList2 = mergedList2.next;
+        LinkedList mergedList = mergeTwoLists(listOne, listTwo);
+        while (mergedList != null) {
+            System.out.println(mergedList.value);
+            mergedList = mergedList.next;
         }
+//        LinkedList mergedList2 = mergeLinkedListsTwo(listOne, listTwo);
+//        while (mergedList2 != null) {
+//            System.out.println(mergedList2.value);
+//            mergedList2 = mergedList2.next;
+//        }
 //        LinkedList mergedList = mergeLinkedLists(listOne, listTwo);
 //        while (mergedList != null) {
 //            System.out.println(mergedList.value);
 //            mergedList = mergedList.next;
 //        }
+    }
+
+    public static LinkedList mergeTwoLists(LinkedList l1, LinkedList l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.value <= l2.value) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
     }
     // O(n + k) n -listOne, k + listTwo | O(1) space
     public static LinkedList mergeLinkedListsTwo(LinkedList headOne, LinkedList headTwo) {
